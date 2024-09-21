@@ -6,7 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Write("Enter a list of numbers, type 0 when finished.");
+        Console.WriteLine("Enter a list of numbers, type 0 when finished.");
 
         List<int> numbers = new List<int>();
 
@@ -30,5 +30,12 @@ class Program
             sum += number;
         }
         Console.WriteLine($"The sum is: {sum}");
+
+        if (numbers.Count > 0) 
+        {
+            float average = (float)sum / numbers.Count; 
+            Console.WriteLine($"The average is: {average}");
+        }
     }
 }
+
