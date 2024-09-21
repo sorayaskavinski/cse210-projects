@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
 class Program
@@ -30,12 +31,22 @@ class Program
             sum += number;
         }
         Console.WriteLine($"The sum is: {sum}");
-
-        if (numbers.Count > 0) 
+        
+        if (numbers.Count > 0)
         {
-            float average = (float)sum / numbers.Count; 
-            Console.WriteLine($"The average is: {average}");
+            int max = numbers[0];
+
+            foreach (int number in numbers)
+            {
+                if (number > max) 
+                {
+                    max = number;
+                }
+            }
+
+            Console.WriteLine($"The largest number is: {max}");
         }
+                
     }
 }
 
