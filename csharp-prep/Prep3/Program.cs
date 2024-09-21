@@ -20,7 +20,7 @@ class Program
         int numberOfGuesses = 0;
 
         Console.WriteLine("Welcome to the Number Guessing Game!");
-        Console.WriteLine("I have selected a number between 1 and 100. Can you guess it?");
+        Console.WriteLine("I have to select a number between 1 and 100. Can you guess it?");
 
         while (guess != magicNumber)
         {
