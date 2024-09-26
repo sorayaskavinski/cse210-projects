@@ -7,17 +7,14 @@ using System.IO;
 public class Journal
 {
     public List<Entry> _entries { get; private set; }
-
     public Journal()
     {
         _entries = new List<Entry>();
     }
-
     public void AddEntry(Entry newEntry)
     {
         _entries.Add(newEntry);
     }
-
     public void DisplayAll()
     {
         if (_entries.Count == 0)
@@ -25,16 +22,14 @@ public class Journal
             Console.WriteLine("No entries to display.");
             return;
         }
-
         foreach (var entry in _entries)
         {
             entry.Display();
         }
     }
-
     public void SaveToFile(string file)
     {
-        using (StreamWriter writer = new StreamWriter(file))
+       using (StreamWriter writer = new StreamWriter(file))
         {
             foreach (var entry in _entries)
             {
@@ -42,9 +37,7 @@ public class Journal
             }
         }
         Console.WriteLine("Entries saved successfully.");
-    }
-
-    
+    }  
     public void LoadFromFile(string file)
     {
         if (File.Exists(file))
@@ -60,7 +53,6 @@ public class Journal
                 }
             }
             Console.WriteLine("Entries loaded successfully.");
-
         }
         else
         {
@@ -68,7 +60,6 @@ public class Journal
         }
     
     }
-
     public void ClearEntries()
     {
         _entries.Clear();

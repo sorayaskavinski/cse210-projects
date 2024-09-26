@@ -4,7 +4,6 @@ using System.Collections.Generic;
 public class PromptGenerator
 {
     public List<string> _prompts { get; }
-
     public PromptGenerator()
     {
         _prompts = new List<string>
@@ -19,7 +18,6 @@ public class PromptGenerator
             "Was today a common day or had something different?"
         };
     }
-
     public string GetRandomPrompt()
     {
         Random rand = new Random();

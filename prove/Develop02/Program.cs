@@ -1,14 +1,12 @@
 //Exceed - added a button Delete Journal as an option for the writer ** button #4
 
 using System;
-
 class Program
 {
     static void Main(string[] args)
     {
         Journal journal = new Journal();
         PromptGenerator promptGenerator = new PromptGenerator();
-
         while (true)
         {
             Console.WriteLine("Choose one of the options:");
@@ -46,7 +44,6 @@ class Program
             }
         }
     }
-
     private static void WriteEntry(Journal journal, PromptGenerator promptGenerator)
     {
         string prompt = promptGenerator.GetRandomPrompt();
@@ -55,21 +52,18 @@ class Program
         journal.AddEntry(new Entry(prompt, response));
         Console.WriteLine("Entry saved!");
     }
-
     private static void LoadEntries(Journal journal)
     {
         Console.Write("Enter the filename to load entries from: ");
         string filename = Console.ReadLine();
         journal.LoadFromFile(filename);
     }
-
     private static void SaveEntries(Journal journal)
     {
         Console.Write("Enter the filename to save entries to: ");
         string filename = Console.ReadLine();
         journal.SaveToFile(filename);
     }
-
     private static void DeleteJournal(Journal journal)
     {
         journal.ClearEntries();
