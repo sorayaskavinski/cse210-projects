@@ -1,3 +1,5 @@
+//added the void clearEntries - as an option for the writer to clean the journal.
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -42,6 +44,7 @@ public class Journal
         Console.WriteLine("Entries saved successfully.");
     }
 
+    
     public void LoadFromFile(string file)
     {
         if (File.Exists(file))
@@ -57,10 +60,17 @@ public class Journal
                 }
             }
             Console.WriteLine("Entries loaded successfully.");
+
         }
         else
         {
             Console.WriteLine("File not found.");
         }
+    
+    }
+
+    public void ClearEntries()
+    {
+        _entries.Clear();
     }
 }

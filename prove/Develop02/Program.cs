@@ -1,3 +1,5 @@
+//Exceed - added a button Delete Journal as an option for the writer ** button #4
+
 using System;
 
 class Program
@@ -13,8 +15,9 @@ class Program
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
             Console.WriteLine("3. Load");
-            Console.WriteLine("4. Save");
-            Console.WriteLine("5. Quit");
+            Console.WriteLine("4. Delete Journal");
+            Console.WriteLine("5. Save");
+            Console.WriteLine("6. Quit");
             Console.Write("What would you like to do? ");
 
             string choice = Console.ReadLine();
@@ -30,9 +33,12 @@ class Program
                     LoadEntries(journal);
                     break;
                 case "4":
-                    SaveEntries(journal);
+                    DeleteJournal(journal);
                     break;
                 case "5":
+                    SaveEntries(journal);
+                    break;
+                case "6":
                     return; 
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
@@ -62,5 +68,11 @@ class Program
         Console.Write("Enter the filename to save entries to: ");
         string filename = Console.ReadLine();
         journal.SaveToFile(filename);
+    }
+
+    private static void DeleteJournal(Journal journal)
+    {
+        journal.ClearEntries();
+        Console.WriteLine("All entries have been deleted from the journal.");
     }
 }
