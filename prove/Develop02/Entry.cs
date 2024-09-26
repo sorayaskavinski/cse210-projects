@@ -6,7 +6,7 @@ public class Entry
 
         public Entry(string promptText, string entryText)
     {
-        _date = "September 26th, 2024"; // Static date
+        _date = DateTime.Now.ToString("MMMM dd yyyy HH:mm"); 
         _promptText = promptText;
         _entryText = entryText;
     }
