@@ -28,12 +28,16 @@ class Program
                 Console.Clear();
                 Console.WriteLine(scripture.GetDisplayText());
 
-                Console.WriteLine("\nPress Enter to hide random words or type 'quit' to exit.");
+                Console.WriteLine("\nPress Enter to hide random words, type 'change' to switch scripture, or type 'quit' to exit.");
                 string input = Console.ReadLine();
 
                 if (input.ToLower() == "quit")
                 {
                     return; 
+                }
+                else if (input.ToLower() == "change")
+                {
+                    break; 
                 }
 
                 scripture.HideRandomWords(1);
