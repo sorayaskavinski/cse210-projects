@@ -5,8 +5,8 @@ public class Customer
     private Address _customerAddress;
     public Customer (string name, Address customerAddress)
     {
-        string _name = name;
-        Address _cutomerAddress = customerAddress;
+        _name = name;
+        _customerAddress = customerAddress;
     }
     public bool IsInUSA()
     {

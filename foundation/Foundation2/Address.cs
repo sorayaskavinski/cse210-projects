@@ -7,10 +7,10 @@ public class Address
     private string _country;
     public Address(string address, string city, string stateOrProvince,string country)
     {
-        string _address = address;
-        string _city = city;
-        string _stateOrProvince = stateOrProvince;
-        string _country = country;
+         _address = address;
+         _city = city;
+         _stateOrProvince = stateOrProvince;
+         _country = country;
     }
     public bool IsInUSA()
     {

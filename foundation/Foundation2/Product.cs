@@ -7,10 +7,10 @@ public class Product
     private int _quantity;
     public Product (string name, string productId, decimal price, int quantity)
     {
-        string _name = name;
-        string _productId = productId;
-        decimal _price = price;
-        int _quantity = quantity;
+         _name = name;
+         _productId = productId;
+         _price = price;
+         _quantity = quantity;
     }
     public decimal GetTotalCost ()
     {
