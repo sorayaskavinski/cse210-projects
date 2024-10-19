@@ -1,29 +1,52 @@
 using System;
-public class Activity
+using System.Collections.Generic;
+using System.Threading;
+
+namespace MindfulnessApp
 {
-    protected string _name;
-    protected string _description;
-    protected int _duration;
-    public Activity(string name, string description, int duration)
+    abstract class Activity
     {
-        _name = name;
-        _description = description;
-        _duration = duration;
-    }
-    public void DisplayStartMessage()
-    {
-        
-    }
-    public void DisplayEndMessage()
-    {
-        
-    }
-    public void ShowSpinner(int seconds)
-    {
+        protected string Name { get; }
+        protected string Description { get; }
+        protected int Duration { get; private set; }
 
-    }
-    public void ShowCountDown(int seconds)
-    {
+        protected Activity(string name, string description)
+        {
+            Name = name;
+            Description = description;
+        }
 
+        public void StartActivity()
+        {
+            Console.Clear();
+            Console.WriteLine($"Starting Activity: {Name}");
+            Console.WriteLine(Description);
+            Console.Write("Enter duration in seconds: ");
+            Duration = int.Parse(Console.ReadLine());
+            Console.WriteLine("Get ready to start...");
+            Pause(3); 
+            ExecuteActivity();
+            EndActivity();
+        }
+
+        protected abstract void ExecuteActivity();
+
+        private void EndActivity()
+        {
+            Console.WriteLine("Well done! You've completed the activity.");
+            Pause(2);
+            Console.WriteLine($"You spent {Duration} seconds on {Name}.");
+            Pause(3);
+        }
+
+        protected void Pause(int seconds)
+        {
+            for (int i = 0; i < seconds; i++)
+            {
+                Console.Write(".");
+                Thread.Sleep(1000);
+            }
+            Console.WriteLine();
+        }
     }
 }
