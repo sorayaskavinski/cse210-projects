@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-class Program
+public class Program
     {
         static void Main(string[] args)
         {
@@ -22,13 +22,13 @@ class Program
                 switch (choice)
                 {
                     case "1":
-                        activity = new BreathingActivity();
+                        activity = new Breathing();
                         break;
                     case "2":
-                        activity = new ReflectionActivity();
+                        activity = new Reflecting();
                         break;
                     case "3":
-                        activity = new ListingActivity();
+                        activity = new Listing();
                         break;
                     case "4":
                         continueRunning = false;
@@ -42,4 +42,3 @@ class Program
             }
         }
     }
-}

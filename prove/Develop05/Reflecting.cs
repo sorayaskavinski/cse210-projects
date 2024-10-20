@@ -1,4 +1,4 @@
-class ReflectionActivity : Activity
+public class Reflecting : Activity
     {
         private readonly List<string> prompts = new List<string>
         {
@@ -21,7 +21,7 @@ class ReflectionActivity : Activity
             "How can you keep this experience in mind in the future?"
         };
 
-        public ReflectionActivity() : base("Reflection Activity", 
+        public Reflecting() : base("Reflection Activity", 
             "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have.")
         {
         }
@@ -31,14 +31,18 @@ class ReflectionActivity : Activity
             Random rand = new Random();
             string prompt = prompts[rand.Next(prompts.Count)];
             Console.WriteLine(prompt);
-            Pause(5); // Time to think about the prompt
+            Console.WriteLine("Press ENTER when you have thought about the prompt");
+            Console.ReadLine();
+            
 
             DateTime endTime = DateTime.Now.AddSeconds(Duration);
             while (DateTime.Now < endTime)
             {
                 string question = questions[rand.Next(questions.Count)];
                 Console.WriteLine(question);
-                Pause(5); // Time to reflect on each question
+                Console.WriteLine("Press ENTER when you are ready.");
+                Console.ReadLine();
+                Pause(5);
             }
         }
     }
