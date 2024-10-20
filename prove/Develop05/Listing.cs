@@ -19,7 +19,7 @@ public class Listing : Activity
             Random rand = new Random();
             string prompt = prompts[rand.Next(prompts.Count)];
             Console.WriteLine(prompt);
-            Pause(5); // Time to think about the prompt
+            Pause(5); 
 
             List<string> items = new List<string>();
             DateTime endTime = DateTime.Now.AddSeconds(Duration);

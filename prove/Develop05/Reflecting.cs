@@ -35,27 +35,17 @@ public class Reflecting : Activity
     {
         Random rand = new Random();
         string prompt = prompts[rand.Next(prompts.Count)];
-        Console.WriteLine(prompt);
-        Console.WriteLine("Press Enter to continue...");
+        DisplayMessageWithSpinner(prompt, "Press Enter to continue...");
 
-        var spinnerTask = Task.Run(() => ShowSpinner());
-
-        Console.ReadLine(); 
-        _spinnerRunning = false;
-        spinnerTask.Wait(); 
-
+        Pause(5); 
+        
         DateTime endTime = DateTime.Now.AddSeconds(Duration);
         while (DateTime.Now < endTime)
         {
             string question = questions[rand.Next(questions.Count)];
-            Console.WriteLine(question);
-            Console.WriteLine("Press Enter to continue...");
-
-            spinnerTask = Task.Run(() => ShowSpinner());
-
-            Console.ReadLine(); 
-            _spinnerRunning = false;
-            spinnerTask.Wait(); 
+            DisplayMessageWithSpinner(question, "Press Enter to continue...");
+            
+            Pause(5); 
         }
     }
 
@@ -70,8 +60,20 @@ public class Reflecting : Activity
         {
             Console.Write(spinner[index++ % spinner.Length]);
             Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
-            Thread.Sleep(100);
+            Thread.Sleep(600);
         }
         Console.WriteLine(); 
+    }
+
+    private void DisplayMessageWithSpinner(string message, string promptMessage)
+    {
+        Console.WriteLine(message);
+        Console.WriteLine(promptMessage);
+
+        var spinnerTask = Task.Run(() => ShowSpinner());
+
+        Console.ReadLine(); 
+        _spinnerRunning = false;
+        spinnerTask.Wait(); 
     }
 }
