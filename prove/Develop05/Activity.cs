@@ -8,6 +8,7 @@ public abstract class Activity
     protected string Description { get; }
     protected int Duration { get; private set; }
 
+    private static int _activityCount;
     protected Activity(string name, string description)
     {
         Name = name;
@@ -24,6 +25,9 @@ public abstract class Activity
         Console.WriteLine("Get ready to start...");
         Pause(3); 
         ExecuteActivity();
+
+        //increment and display activity count
+        _activityCount++;
         EndActivity();
     }
 

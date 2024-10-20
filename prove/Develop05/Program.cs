@@ -1,3 +1,6 @@
+//extra mile - I'm keeping a log of how many times activities were performed. 
+//my animation is different than presented in class.
+
 using System.Diagnostics;
 
 public class Program
