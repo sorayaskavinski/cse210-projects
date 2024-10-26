@@ -111,7 +111,7 @@ public class GoalManager
         }
         Console.WriteLine("Goals saved successfully!");
     }
-    public void UploadGoals()
+    public void LoadGoals()
     {
         Console.Write("Enter the path of the goals file to upload: ");
         string filePath = Console.ReadLine();
@@ -129,9 +129,10 @@ public class GoalManager
 
             while (!reader.EndOfStream)
             {
-                string line = reader.ReadLine();            
+                string line = reader.ReadLine();
+                Console.WriteLine(line);           
             }
         }
-        Console.WriteLine("Goals uploaded successfully!");
+        Console.WriteLine("Goals uploaded successfuly");
     }
 }
