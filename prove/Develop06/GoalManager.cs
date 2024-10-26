@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 public class GoalManager
 {
     private List<Goal> _goals;
@@ -114,10 +111,68 @@ public class GoalManager
         }
         Console.WriteLine("Goals saved successfully!");
     }
-
     public void LoadGoals()
     {
-       
-    Console.WriteLine("Goals loaded successfully!");
+        if (!File.Exists("goals.txt"))
+        {
+            Console.WriteLine("No saved goals found.");
+            return;
+        }
+
+        using (StreamReader reader = new StreamReader("goals.txt"))
+        {
+            _score = int.Parse(reader.ReadLine());
+            _goals.Clear();
+
+            while (!reader.EndOfStream)
+            {
+                string line = reader.ReadLine();
+                var parts = line.Split(',');
+
+                if (parts.Length < 4)
+                {
+                    Console.WriteLine($"Skipping invalid line: {line}");
+                    continue;
+                }
+
+                string goalType = parts[0].Trim();
+                string shortName = parts[1].Trim();
+                string description = parts[2].Trim();
+                int points = int.Parse(parts[3].Trim().Split(' ')[0]); 
+
+                Goal goal = null;
+
+                switch (goalType)
+                {
+                    case "SimpleGoal":
+                        goal = new SimpleGoal(shortName, description, points);
+                        break;
+                    case "EternalGoal":
+                        goal = new EternalGoal(shortName, description, points);
+                        break;
+                    case "ChecklistGoal":                    
+                        string[] details = description.Split('-');
+                        string mainDescription = details[0].Trim();
+                    
+                        string[] completionParts = details[1].Trim().Split(' ');
+                        int completed = int.Parse(completionParts[1].Split('/')[0]); 
+                        int target = int.Parse(completionParts[1].Split('/')[1]); 
+
+                        var checklistGoal = new ChecklistGoal(shortName, mainDescription, points, target, 0);
+                        checklistGoal.SetAmountCompleted(completed);
+                        goal = checklistGoal;
+                        break;
+                    default:
+                        Console.WriteLine($"Unknown goal type: {goalType}. Skipping.");
+                        continue;
+                }
+
+                if (goal != null)
+                {
+                 _goals.Add(goal);
+                }
+            }
+        }
+        Console.WriteLine("Goals loaded successfully!");
     }
 }
