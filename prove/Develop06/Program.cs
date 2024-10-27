@@ -1,3 +1,10 @@
+//Today I helped my brother move, so I'm too tired to finish the program.... 
+//it's not running exactly the way it's supposed...
+//but I'll finish it tomorrow.. 
+//I'll send it as it is for grading and do the extension and the missing part sometime this week..
+// Sorry
+
+
 using System.Diagnostics;
 class Program
 {
