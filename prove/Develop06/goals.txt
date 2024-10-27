@@ -1,4 +1,1 @@
 0
-EternalGoal,Read Scriptures - Always In Progress,Read Scriptures: Read Scriptures everyday at least 1 chapter - 10 points
-ChecklistGoal,Temple Frequency - Incomplete,Temple Frequency: Go to the temple twice a month - Completed 0/2 times, 100 points
-SimpleGoal,Give a talk - Incomplete,Give a talk: Give a talk on church Sacramental - 100 points

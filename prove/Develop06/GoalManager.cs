@@ -133,6 +133,11 @@ public class GoalManager
                 Console.WriteLine(line);           
             }
         }
-        Console.WriteLine("Goals uploaded successfuly");
+        Console.WriteLine($"Goals loaded successfully from {filePath}!");
+        Console.WriteLine("Loaded Goals:");
+        foreach (var goal in _goals)
+        {
+            Console.WriteLine(goal.GetStringRepresentation());
+        }
     }
 }
