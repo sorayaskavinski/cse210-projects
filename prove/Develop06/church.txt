@@ -1,0 +1,4 @@
+0
+EternalGoal,Read - Always In Progress,Read: Read one chapter from the scriptures everyday - 10 points
+ChecklistGoal,Temple - Incomplete,Temple: Go to the temple twice a month - Completed 0/2 times
+SimpleGoal,Speech - Incomplete,Speech: Give a speech on Sacramental meeting - 100 points

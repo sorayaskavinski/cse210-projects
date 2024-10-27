@@ -100,7 +100,16 @@ public class GoalManager
 
     public void SaveGoals()
     {
-        using (StreamWriter writer = new StreamWriter("goals.txt"))
+        Console.Write("Enter the filename to save goals (including .txt extension): ");
+        string fileName = Console.ReadLine();
+
+        if (string.IsNullOrWhiteSpace(fileName))
+        {
+            Console.WriteLine("Invalid filename. Please provide a valid filename.");
+            return;
+        }
+
+        using (StreamWriter writer = new StreamWriter(fileName))
         {
             writer.WriteLine(_score);
             foreach (var goal in _goals)
@@ -109,11 +118,13 @@ public class GoalManager
                 writer.WriteLine($"{goalType},{goal.GetStringRepresentation()},{goal.GetDetailsString()}");
             }
         }
-        Console.WriteLine("Goals saved successfully!");
+
+        Console.WriteLine($"Goals saved successfully to {fileName}!");
     }
     public void LoadGoals()
     {
         Console.Write("Enter the path of the goals file to upload: ");
+        Console.WriteLine("Loaded Goals:");
         string filePath = Console.ReadLine();
     
         if (!File.Exists(filePath))
@@ -134,7 +145,6 @@ public class GoalManager
             }
         }
         Console.WriteLine($"Goals loaded successfully from {filePath}!");
-        Console.WriteLine("Loaded Goals:");
         foreach (var goal in _goals)
         {
             Console.WriteLine(goal.GetStringRepresentation());
